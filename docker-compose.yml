@@ -7,8 +7,8 @@ services:
     image: node-hello-image
     build: .
     ports: 
-      - '399:80'
+      - '80:80'
     expose:
-      - "80"
+      - "3000"
 
 
