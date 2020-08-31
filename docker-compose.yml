@@ -7,8 +7,10 @@ services:
     image: node-hello-image
     build: .
     ports: 
-      - '80:80'
+      - '443:80'
     expose:
       - "3000"
 
 
+# pdns1.registrar-servers.com
+# pdns2.registrar-servers.com

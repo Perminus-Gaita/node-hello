@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000;
 const server = http.createServer((req, res) => {
   console.log("request detected.")
   res.statusCode = 200;
-  const msg = 'Hello Node!!!\n'
+  const msg = 'Wewe ni mnoma!!!\n'
   res.end(msg);
 });
 
