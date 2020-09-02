@@ -9,9 +9,9 @@ const server = https.createServer(
   // },
   (req, res) => {
     const xfp = req.headers["X-Forwarded-Proto"] || req.headers["x-forwarded-proto"];
-    console.log({"req":req});
+    //console.log({"req":req});
     if (!req.connection.encrypted) {
-      res.redirect(301, `https://${req.headers.host}${req.url}`);
+      res.writeHead(301, `https://${req.headers.host}${req.url}`);
       console.log("redirecting")
     } else {
         console.log("request detected.")
