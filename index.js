@@ -11,10 +11,11 @@ const server = https.createServer(
     const xfp = req.headers["X-Forwarded-Proto"] || req.headers["x-forwarded-proto"];
     if (xfp === "http") {
       res.redirect(301, `https://${hostname}${req.url}`);
+      console.log("redirecting")
     } else {
         console.log("request detected.")
         res.statusCode = 200;
-        const msg = 'Wewe ni mnoma!!!\n'
+        const msg = 'Wewe, ni mnoma!!!\n'
         res.end(msg);
       }
 });
