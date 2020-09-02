@@ -1,7 +1,13 @@
-const https = require('https');
+const https = require('http');
+const fs = require('fs');
 const port = process.env.PORT || 3000;
 
-const server = https.createServer((req, res) => {
+const server = https.createServer(
+  // {
+  //   key: fs.readFileSync('server.key'),
+  //   cert: fs.readFileSync('server.cert')
+  // },
+  (req, res) => {
   console.log("request detected.")
   res.statusCode = 200;
   const msg = 'Wewe ni mnoma!!!\n'
