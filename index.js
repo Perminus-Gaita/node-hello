@@ -8,22 +8,16 @@ const server = https.createServer(
   //   cert: fs.readFileSync('server.cert')
   // },
   (req, res) => {
-  console.log("request detected.")
-  res.statusCode = 200;
-  const msg = 'Wewe ni mnoma!!!\n'
-  res.end(msg);
+    const xfp = req.headers["X-Forwarded-Proto"] || req.headers["x-forwarded-proto"];
+    if (xfp === "http") {
+      res.redirect(301, `https://${hostname}${req.url}`);
+    } else {
+        console.log("request detected.")
+        res.statusCode = 200;
+        const msg = 'Wewe ni mnoma!!!\n'
+        res.end(msg);
+      }
 });
-function forceHttps(req, res, next) {
-  const xfp =
-    req.headers["X-Forwarded-Proto"] || req.headers["x-forwarded-proto"];
-  if (xfp === "http") {
-    res.redirect(301, `https://${hostname}${req.url}`);
-  } else {
-    next();
-  }
-}
-
-server.use(forceHttps);
 
 server.listen('80', '0.0.0.0', () => {
   console.log(`Server running.`);
