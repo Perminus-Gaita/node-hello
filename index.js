@@ -13,6 +13,8 @@ const server = https.createServer(
     if (!req.connection.encrypted) {
       res.writeHead(301, `https://${req.headers.host}${req.url}`);
       console.log("redirecting")
+      const msg = 'Wewe, ni mnomare!!!\n'
+      res.end(msg);
     } else {
         console.log("request detected.")
         res.statusCode = 200;
