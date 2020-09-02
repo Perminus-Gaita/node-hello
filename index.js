@@ -1,7 +1,7 @@
 const https = require('https');
 const port = process.env.PORT || 3000;
 
-const server = http.createServer((req, res) => {
+const server = https.createServer((req, res) => {
   console.log("request detected.")
   res.statusCode = 200;
   const msg = 'Wewe ni mnoma!!!\n'
