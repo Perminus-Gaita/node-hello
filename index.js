@@ -1,7 +1,7 @@
 
 const express = require('express')
 const app = express()
-const server = require('http').Server(app); // server to be used by socket.io
+const server = require('https').Server(app); // server to be used by socket.io
 const forceHttps = require('@crystallize/elasticloadbalancer-express-force-https');
 
 app.use(forceHttps());
@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
   res.end(msg);
 })
 
-server.listen('80', '0.0.0.0', () => {
+server.listen('443', '0.0.0.0', () => {
   console.log(`Server running.`);
 });
 
