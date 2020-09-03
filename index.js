@@ -1,11 +1,10 @@
 
 const express = require('express')
 const app = express()
-const server = require('https').Server(app); // server to be used by socket.io
-const forceHttps = require('@crystallize/elasticloadbalancer-express-force-https');
+const server = require('http').Server(app); // server to be used by socket.io
 
-app.use(forceHttps());
 app.get('/', function (req, res) {
+  console.log("request")
   const msg = 'Wewe ni mnoma!!!\n'
   res.end(msg);
 })
