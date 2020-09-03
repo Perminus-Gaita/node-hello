@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
   res.end(msg);
 })
 
-server.listen('443', '0.0.0.0', () => {
+server.listen('80', '0.0.0.0', () => {
   console.log(`Server running.`);
 });
 
